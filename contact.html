@@ -14,15 +14,40 @@
   <body>
     <header>
       <nav>
-        <a href="about.html"><button type="button">About Us</button></a>
-        <a href="menu.html"><button type="button">Menu</button></a>
-        <a href="index.html"><h1>Fastest Bread Bakery</h1></a>
-        <a href="order.html"><button type="button">Order Online</button></a>
-        <a href="contact.html"><button type="button">Contact</button></a>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li class="logo"><a href="index.html">Fastest Bread Bakery</a></li>
+          <li><a href="order.html">Order Online</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </nav>
     </header>
 
-    <main></main>
+    <main>
+      <h2>Contact Us</h2>
+      <p>
+        We would love to hear from you! <br />
+        Send a message below, give us a call, or come visit us in person!
+      </p>
+      <div class="contact">
+        <form action="#">
+          <p>Name</p>
+          <input type="text" name="name" id="name" />
+
+          <p>Email*</p>
+          <input type="email" name="email" id="email" required />
+
+          <p>Phone</p>
+          <input type="tel" name="phone" id="phone" />
+
+          <p>Message</p>
+          <textarea name="message" id="message"></textarea>
+
+          <input type="submit" name="submit" id="submit" value="Submit" />
+        </form>
+      </div>
+    </main>
 
     <footer>
       <p class="footer-address">

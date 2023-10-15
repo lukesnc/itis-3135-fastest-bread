@@ -15,37 +15,41 @@ body {
   flex-direction: column;
 }
 
-a {
-  text-decoration: none;
-}
-
 /* Header */
 header {
   background-color: beige;
+  padding-left: 10rem;
+  padding-right: 10rem;
 }
 
-header nav {
+header nav ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr) 2fr repeat(2, 1fr);
   grid-template-rows: 1fr;
 }
 
-header nav a {
+header nav ul li {
+  list-style: none;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-header nav h1 {
-  background-color: wheat;
-  color: white;
-  padding: 1.5rem;
+header nav ul li a {
+  color: black;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-decoration: none;
 }
 
-header nav button {
+.logo {
+  background-color: wheat;
+}
+
+.logo a {
   color: white;
-  background-color: darksalmon;
-  padding: 0.5rem;
+  font-size: x-large;
+  font-weight: bold;
 }
 
 /* Main content area */
@@ -67,6 +71,7 @@ main h3 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 1.5rem;
 }
 
 .preview-arrow-left,
@@ -79,8 +84,6 @@ main h3 {
   border: thin black solid;
   display: flex;
   flex-flow: column;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
 }
 
 .preview {
@@ -191,8 +194,64 @@ footer {
   grid-template-rows: repeat(2, 1fr);
 }
 
+.bread-day {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+
 .bread-day p {
   font-size: large;
   font-weight: bold;
-  text-align: center;
+}
+
+.bread-day ul {
+  font-size: smaller;
+}
+
+.drink-section img {
+  height: 300px;
+  border: thin solid black;
+}
+
+.drink-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.drink-section table {
+  border-spacing: 1.5rem;
+}
+
+/* Contact */
+.contact form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 3rem;
+  row-gap: 0.5rem;
+  width: 30rem;
+}
+
+textarea[id="message"] {
+  resize: vertical;
+  min-height: 10rem;
+}
+
+input[type="submit"] {
+  color: white;
+  background-color: darksalmon;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  width: 30%;
+}
+
+input[id="name"],
+input[id="email"],
+input[id="phone"],
+textarea[id="message"] {
+  background-color: beige;
 }
