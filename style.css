@@ -60,9 +60,8 @@ main {
   align-items: center;
 }
 
-main h2,
-main h3 {
-  margin: 2rem;
+main > * {
+  margin: 1rem;
 }
 
 /* Gallery */
@@ -97,7 +96,7 @@ main h3 {
 .preview-container figcaption {
   background-color: beige;
   color: black;
-  padding: 0.5rem 0;
+  padding: 0.5rem;
   text-align: center;
 }
 
@@ -182,7 +181,6 @@ footer {
 }
 
 .family-bio {
-  margin: 1.5rem;
   text-align: center;
   width: 50%;
 }
@@ -231,7 +229,6 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 3rem;
   row-gap: 0.5rem;
   width: 30rem;
 }
