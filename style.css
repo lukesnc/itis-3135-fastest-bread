@@ -151,6 +151,10 @@ main > * {
   transition: height 0.5s, width 0.5s;
 }
 
+.testimonial:hover {
+  background-color: rgb(234, 215, 181);
+}
+
 .testimonial span {
   display: none;
 }

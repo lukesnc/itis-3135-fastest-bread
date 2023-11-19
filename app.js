@@ -6,10 +6,10 @@ const arrows = Array.from(document.querySelectorAll(".preview-arrow"));
 const PREVIEW_SIZE = previewItems.length;
 
 arrows.forEach((arrow) => {
-  arrow.addEventListener("click", swipe);
+  arrow.addEventListener("click", swipeGallery);
 });
 
-function swipe(e) {
+function swipeGallery(e) {
   const currentPreviewlItem = document.querySelector(".preview-item.active");
   const currentIndex = previewItems.indexOf(currentPreviewlItem);
 
