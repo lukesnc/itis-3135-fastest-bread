@@ -39,29 +39,27 @@ const testimonials = Array.from(document.querySelectorAll(".testimonial"));
 
 testimonials.forEach((t) => {
   t.addEventListener("click", clickTestimonial);
-  if (t.lastElementChild.classList.contains("open")) {
-    t.style.setProperty("width", "300px");
-    t.style.setProperty("height", "250px");
-  }
 });
 
 function clickTestimonial(e) {
+  e.currentTarget.classList.toggle("open");
   e.currentTarget.lastElementChild.classList.toggle("open");
   e.currentTarget.children[1].classList.toggle("open");
-  if (e.currentTarget.lastElementChild.classList.contains("open")) {
-    e.currentTarget.style.setProperty("width", "300px");
-    e.currentTarget.style.setProperty("height", "250px");
-  } else {
-    e.currentTarget.style.setProperty("width", "120px");
-    e.currentTarget.style.setProperty("height", "120px");
-  }
 
   testimonials.forEach((t) => {
     if (e.currentTarget !== t) {
+      t.classList.remove("open");
       t.children[1].classList.add("open");
       t.lastElementChild.classList.remove("open");
-      t.style.setProperty("width", "120px");
-      t.style.setProperty("height", "120px");
     }
   });
 }
+
+const cartBtn = document.querySelector(".cart-btn");
+const cartDiv = document.querySelector(".cart");
+
+cartBtn.addEventListener("click", () => {
+  cartDiv.classList.toggle("open");
+});
+
+const userCart = [];
