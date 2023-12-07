@@ -346,7 +346,47 @@ textarea[id="message"] {
   opacity: 1;
 }
 
+.cart-item img {
+  height: 50px;
+  width: 50px;
+  border: thin black solid;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remove-btn {
+  background-color: lightblue;
+  padding: 0.5rem;
+}
+
+.shop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  flex-wrap: wrap;
+}
+
 .shop img {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
+  border: thin black solid;
+  margin: 1rem;
+}
+
+.shop-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.add-to-cart-btn {
+  background-color: lightgreen;
+  padding: 0.5rem;
 }

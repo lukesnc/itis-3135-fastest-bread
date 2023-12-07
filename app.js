@@ -1,5 +1,7 @@
 "use strict";
 
+// Carousel
+
 const previewItems = Array.from(document.querySelectorAll(".preview-item"));
 const previewCaption = document.querySelector(".preview-caption");
 const arrows = Array.from(document.querySelectorAll(".preview-arrow"));
@@ -35,6 +37,8 @@ function swipeGallery(e) {
     previewItems[nextIndex].firstElementChild.getAttribute("alt");
 }
 
+// Testimonials
+
 const testimonials = Array.from(document.querySelectorAll(".testimonial"));
 
 testimonials.forEach((t) => {
@@ -55,11 +59,95 @@ function clickTestimonial(e) {
   });
 }
 
+// Create shopping cart
+
 const cartBtn = document.querySelector(".cart-btn");
 const cartDiv = document.querySelector(".cart");
 
-cartBtn.addEventListener("click", () => {
-  cartDiv.classList.toggle("open");
-});
+if (cartBtn != null) {
+  cartBtn.addEventListener("click", () => {
+    cartDiv.classList.toggle("open");
+  });
+}
 
-const userCart = [];
+// Manage shopping cart
+
+const checkoutBtn = document.querySelector(".checkout-btn");
+
+function addToCart(e) {
+  const buttonClicked = e.currentTarget;
+
+  const cartItem = document.createElement("div");
+  cartItem.classList.add("cart-item");
+
+  const img = document.createElement("img");
+  img.src = buttonClicked.previousSibling.src;
+  cartItem.appendChild(img);
+
+  const p = document.createElement("p");
+  p.textContent = buttonClicked.previousSibling.previousSibling.textContent;
+  cartItem.appendChild(p);
+
+  const remove = document.createElement("button");
+  remove.textContent = "Remove";
+  remove.classList.add("remove-btn");
+  remove.addEventListener("click", removeFromCart);
+  cartItem.appendChild(remove);
+
+  cartDiv.insertBefore(cartItem, checkoutBtn);
+}
+
+function removeFromCart(e) {
+  e.currentTarget.parentNode.remove();
+}
+
+// Populate shop
+
+const shopDiv = document.querySelector(".shop");
+const SHOP_SIZE = 10;
+
+async function addImageToShop(num) {
+  try {
+    const r = await fetch(
+      "https://api.api-ninjas.com/v1/randomimage?category=food",
+      {
+        headers: {
+          Accept: "image/jpg",
+          "X-Api-Key": "pRIiKzDMEeuXo7I8Shu2lQ==X69dWnL2OaKJDwqL", // I know.... ¯\_(ツ)_/¯
+        },
+      }
+    );
+    if (!r.ok) throw Error(`Error: ${r.url} ${r.statusText}`);
+    const blob = await r.blob();
+
+    // Add to DOM
+    const div = document.createElement("div");
+    div.classList.add("shop-item");
+
+    const name = document.createElement("p");
+    name.textContent = "Item " + num;
+    div.appendChild(name);
+
+    const img = document.createElement("img");
+    const imageUrl = URL.createObjectURL(blob);
+    img.src = imageUrl;
+    div.appendChild(img);
+
+    const button = document.createElement("button");
+    button.textContent = "Add to Cart";
+    button.classList.add("add-to-cart-btn");
+    div.appendChild(button);
+
+    button.addEventListener("click", addToCart);
+
+    shopDiv.appendChild(div);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+if (shopDiv != null) {
+  for (let i = 0; i < SHOP_SIZE; i++) {
+    addImageToShop(i + 1);
+  }
+}
